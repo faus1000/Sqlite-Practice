@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="Sqlite_Practice.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Sqlite_Practice"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="#0EA7DC">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" d:LayoutOverrides="TopPosition, BottomPosition">
+            <TextBox x:Name="tb_Name" PlaceholderText="Name" Text="" Header="Nombre:" Margin="5"/>
+            <TextBox x:Name="tb_Age" PlaceholderText="Age" Text="" Header="Edad:" Margin="5" InputScope="Number"/>
+            <StackPanel Orientation="Horizontal" Padding="5" HorizontalAlignment="Center">
+                <Button x:Name="btn_Add" Click="Btn_Add_Click" Content="Add" HorizontalAlignment="Stretch" Margin="5"/>
+                 <Button x:Name="btn_Delete" Click="Btn_Delete_Click" Content="Delete" HorizontalAlignment="Stretch" Margin="5"/>
+            </StackPanel>
+           
+
+        </StackPanel>
+        <ListView x:Name="ListPerson" Margin="0" Grid.Row="1" VerticalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" Padding="5">
+                        <StackPanel Orientation="Horizontal" Padding="5">
+                            <TextBlock Text="{Binding Name}"
+                                       Margin="20,0,20,8"
+                                       FontSize="24"
+                                       FontWeight="SemiBold"
+                                       Foreground="DarkBlue"/>
+                        </StackPanel>
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="BorderBrush" Value="#FF939090"/>
+                    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+    </Grid>
+</Page>
